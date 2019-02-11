@@ -11,7 +11,7 @@ public class Bank {
         this.login=login;
         this.password=password;
     }
-    void takeMoney(String login,long password,int sum){
+    synchronized void takeMoney(String login,long password,int sum){
         if(!checkPassAndLogin(login,password)){
             System.out.println("Wrong login or password");
         }

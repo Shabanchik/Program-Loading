@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startProgress();
+                getMoney();
             }
         });
 
@@ -42,6 +43,13 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    private void getMoney(){
+        Bank account= new Bank(200,"login",123);//оздем аккаунт
+        SingleThreat stOne= new SingleThreat(account); SingleThreat stTwo = new SingleThreat(account);//создаем два потока
+        stOne.getMoneyFromAccount("login",123,150);//снимаем 150
+        stTwo.getMoneyFromAccount("login",123,150);// снимаем 150, при том что на аккаунте 200
+
+    }//наша программа с аккаунтом
     private void iskluchenia(){
         int a=10;
         int b = 0;
@@ -55,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d("App","CLOSE");
         }
     }
+
 
     private void startProgress() {
         final int[] p = {0};
