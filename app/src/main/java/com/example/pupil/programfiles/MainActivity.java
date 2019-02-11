@@ -3,6 +3,7 @@ package com.example.pupil.programfiles;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -40,6 +41,19 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    }
+    private void iskluchenia(){
+        int a=10;
+        int b = 0;
+        try{
+            int c=a/b;
+        }
+        catch (ArithmeticException e){
+            Log.e("Error",e.getLocalizedMessage());
+        }
+        finally {
+            Log.d("App","CLOSE");
+        }
     }
 
     private void startProgress() {
