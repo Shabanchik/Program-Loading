@@ -15,7 +15,7 @@ public class SingleThreat implements Runnable {//все что происход�
         this.password=password;
         this.login=login;
         this.sum=sum;
-        Thread thread = new Thead(this);
+        Thread thread = new Thread(this);
         thread.start();
     }
     public void run(){ account.takeMoney(this.login,this.password,this.sum);}

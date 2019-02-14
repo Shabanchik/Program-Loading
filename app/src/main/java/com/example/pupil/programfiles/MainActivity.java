@@ -10,6 +10,8 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
@@ -91,6 +93,31 @@ public class MainActivity extends AppCompatActivity {
         private boolean checkFile(File path){ return file.exists(); }
         private boolean createNewFile(File file) throws IOException {
         return file.createNewFile();}
+        private void writeToFile(File file){
+        String str="Hello world";
+        byte[] mass=str.getBytes();
+            FileOutputStream steam= null;
+            try{
+                steam= new FileOutputStream(file.getAbsolutePath());
+                steam.write(mass);
+            }
+            catch (FileNotFoundException e){
+                e.printStackTrace();
+            }
+            catch(IOException e){
+                e.printStackTrace();
+            }
+            finally{
+                try{
+                    if(steam!=null){
+                        steam.close();
+                    }
+                }
+                catch (IOException e){
+                    e.printStackTrace();
+                }
+            }
+        }
 
 
     }
